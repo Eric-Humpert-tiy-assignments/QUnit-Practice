@@ -26,6 +26,19 @@ if (this.QUnitPractice === undefined) this.QUnitPractice = {};
     return filteredAuthors.length;
   }
 
+  function authorWithMostPublishedWorks(authors) {
+    var authorName = '';
+    var mostWorks = authors[0];
+    for (var i = 1; i < authors.length; i++) {
+      if (authors[i].publishedWorks > mostWorks.publishedWorks) {
+        mostWorks = authors[i];
+        authorName = authors[i].name;
+        console.log(authors[i].name);
+      }
+    }
+    return authorName;
+  }
+
   function authorsWhoseNameBeginsWithLetter(authors, letter) {
     var filteredAuthors = [];
     for (var author of authors) {
@@ -40,7 +53,7 @@ if (this.QUnitPractice === undefined) this.QUnitPractice = {};
     var sum = 0;
     for (var author of authors) {
       sum += author.publishedWorks;
-      console.log(author);
+
     }
     return Math.round(sum / authors.length);
   }
@@ -60,6 +73,7 @@ if (this.QUnitPractice === undefined) this.QUnitPractice = {};
 
   context.filterAuthorsCount = filterAuthorsCount;
   context.authorsWhoWroteOver500Filter = authorsWhoWroteOver500Filter;
+  context.authorWithMostPublishedWorks = authorWithMostPublishedWorks;
   context.authorsWhoseNameBeginsWithLetter = authorsWhoseNameBeginsWithLetter;
   context.averagePublishedWorks = averagePublishedWorks;
   context.averagePublishedWorksByLanguage = averagePublishedWorksByLanguage;
