@@ -5,13 +5,11 @@ if (this.QUnitPractice === undefined) this.QUnitPractice = {};
 
   function filterAuthorsCount(authors, language) {
     var filteredAuthors = [];
-
     for (var author of authors) {
       if (author.language === language) {
         filteredAuthors.push(author);
       }
     }
-
     return filteredAuthors.length;
   }
 
@@ -69,7 +67,6 @@ if (this.QUnitPractice === undefined) this.QUnitPractice = {};
     }
     return Math.round(sum / filteredAuthors.length);
   }
-
 
   context.filterAuthorsCount = filterAuthorsCount;
   context.authorsWhoWroteOver500Filter = authorsWhoWroteOver500Filter;
