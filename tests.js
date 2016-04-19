@@ -37,6 +37,11 @@ QUnit.test( 'count of authors who wrote over 500 books', function(assert) {
   assert.deepEqual(filtered, 5, 'Should have returned 5 results.');
 });
 
+QUnit.test( 'return the author with the most Published works', function(assert) {
+  var filtered = QUnitPractice.authorWithMostPublishedWorks(authors);
+  assert.deepEqual(filtered, 'Jacob Neusner', 'Should have returned Jacob Neusner');
+});
+
 QUnit.test( 'count of authors with name beginning with letter A', function(assert) {
   var filtered = QUnitPractice.authorsWhoseNameBeginsWithLetter(authors, 'A');
   assert.deepEqual(filtered, 3, 'Should have returned 3 results.');
@@ -60,7 +65,7 @@ QUnit.test( 'compute the average number of published works by English authors', 
 QUnit.test( 'compute the average number of published works by Japanese authors', function(assert) {
   var computed = QUnitPractice.averagePublishedWorksByLanguage(authors, 'Japanese');
   assert.deepEqual(computed, 470, 'Should have returned 470.');
-})
+});
 //Write tests to get these bits of data, and then write the functions to return that data to pass the tests
 /*
 
