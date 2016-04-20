@@ -15,7 +15,6 @@ if (this.QUnitPractice === undefined) this.QUnitPractice = {};
 
   function authorsWhoWroteOver500Filter(authors) {
     var filteredAuthors = [];
-
     for (var author of authors) {
       if (author.publishedWorks > 500) {
         filteredAuthors.push(author);
@@ -31,7 +30,6 @@ if (this.QUnitPractice === undefined) this.QUnitPractice = {};
       if (authors[i].publishedWorks > mostWorks.publishedWorks) {
         mostWorks = authors[i];
         authorName = authors[i].name;
-        console.log(authors[i].name);
       }
     }
     return authorName;
