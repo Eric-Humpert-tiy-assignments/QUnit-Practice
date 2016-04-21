@@ -3,13 +3,19 @@ if (this.QUnitPractice === undefined) this.QUnitPractice = {};
 
 (function(context) {
 
-  function filterAuthorsCount(authors, language) {
+  function filterAuthorsByLanguage(authors, language) {
     var filteredAuthors = [];
     for (var author of authors) {
       if (author.language === language) {
         filteredAuthors.push(author);
       }
     }
+    return filteredAuthors;
+  }
+
+  function filterAuthorsCount(authors, language) {
+    var filteredAuthors = filterAuthorsByLanguage(authors, language);
+
     return filteredAuthors.length;
   }
 
@@ -49,21 +55,14 @@ if (this.QUnitPractice === undefined) this.QUnitPractice = {};
     var sum = 0;
     for (var author of authors) {
       sum += author.publishedWorks;
-
     }
     return Math.round(sum / authors.length);
   }
 
   function averagePublishedWorksByLanguage(authors, language){
-    var sum = 0;
-    var filteredAuthors = [];
-    for (var author of authors) {
-      if (author.language === language) {
-        filteredAuthors.push(author);
-        sum += author.publishedWorks;
-      }
-    }
-    return Math.round(sum / filteredAuthors.length);
+    var filteredAuthors = filterAuthorsByLanguage(authors, language);
+    var average = averagePublishedWorks(filteredAuthors);
+    return average;
   }
 
   context.filterAuthorsCount = filterAuthorsCount;
